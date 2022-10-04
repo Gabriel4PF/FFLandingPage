@@ -5,9 +5,10 @@
 --primary-lime:hsl(192,37%,48%);
 --primary-dark:hsl(240,21%,20%);
 --primary-grey:hsl(240,10%,57%);
+--primary-grey-light:hsl(240,10%,87%);
 --primary-blue:hsl(192,90%,77%);
 --primary-pink:hsl(268,100%,86%);
---primary-white:hsl(0,0,98%);
+--primary-white:hsl(0,0%,98%);
 
 --ff-primary:"Red Hat Display", sans-serif;
 
@@ -65,9 +66,10 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
+  padding: 0;
 }
 
 /* Set core root defaults */
@@ -92,7 +94,10 @@ img,
 picture, svg {
   max-width: 100%;
   display: block;
+ 
 }
+
+
 
 /* Inherit fonts for inputs and buttons */
 input,
@@ -129,12 +134,16 @@ body {
     color: var(--primary-grey);
     font-weight: var(--fw-regular);
     font-size: var(--fs-700);
+    line-height: 1.5;
+    padding-inline: 1.5rem;
   }
 
-  .text-primary_500{
+  .text-primary-500{
     color: var(--primary-grey);
     font-size: var(--fs-600);
     font-weight: var(--fw-regular);
+    line-height: 1.5;
+    padding-inline: 0.5rem;
   }
   .text-primary-800{
     color: var(--primary-white);
@@ -152,17 +161,29 @@ body {
   .primary-heading{
     font-size:var(--fs-800);
     font-weight: var(--fw-bold);
-    padding-inline: 2rem;
+    padding-inline: 2.5rem;
  
    
 
+  }
+  .max{
+    max-width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.4rem;
+    word-spacing: 0.1rem;
   }
 
   .secondary-heading{
     color: var(--primary-dark);
     font-size: var(--fs-750);
     font-weight: var(--fw-bold);
-    padding-inline: 5rem;
+    padding-inline: 1rem;
+  }
+  .footer-heading{
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+    padding-inline: 1rem;
+
   }
 .primary-text{
     font-size: var(--fs-700);
@@ -195,6 +216,11 @@ body {
     margin-inline: auto;
 
 
+  } 
+
+  .color-white{
+color: var(--primary-white);
+
   }
 
 
@@ -207,29 +233,62 @@ body {
     width: 8rem;
     margin-inline: auto;
   }
+  .hero{
+    padding-block: 6.5rem;
+    position: relative;
+    padding-top: 2.5rem;
+  }
 .hero-txt{
     text-align: center;
+    padding-block: 1.5rem;
 
 }
 .button{
     display:flex;
     margin-inline: auto;
-    color: white;
     cursor: pointer;
     border: 0;
     border-radius:100vmax;
     font-size: var(--fs-button);
-    font-weight:var(--fw-bold)
+    font-weight:var(--fw-bold);
+    color: var(--primary-white);
+    
 }
 
+
+.padding-block{
+    padding-block: 4.7rem;
+}
+footer{
+    background-color: var(--primary-lime);
+    background-image: url("assets/mobile/image-footer.jpg");
+    background-size: cover;
+    text-align: center;
+    background-position: top left;
+    position: relative;
+    isolation: isolate;
+ 
+
+}
+
+footer::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--primary-lime);
+    opacity: 0.9
+
+}
 
 .btn-1{
 background-color: var(--primary-lime);
 padding: 1.5rem 3.5rem;
 }
+
 .btn-2{
     background-color:  hsl(268
-    ,34%,53%);
+    ,34%,49%);
     
     padding: 1.5rem 2.5rem;
 
@@ -238,9 +297,110 @@ padding: 1.5rem 3.5rem;
 
 .main-content{
     text-align: center;
+    position: relative;
+    padding-block: 3.5rem;
+    padding-bottom: 11.5rem;
 }
 
-  header{
 
-  
-  }
+.photo-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr) );
+    gap: 1.5rem;
+    padding-bottom: 2.5rem;
+
+
+}
+.img-container img{
+    border-radius: 0.5rem;
+}
+.hero-image img{
+    max-width: none;
+    width: 105vw;
+
+}
+
+.hero-image{
+ 
+ width: 200px;
+}
+.numbered{
+    display: inline-block;
+    border-radius: 100vmax;
+    border: 1px solid var(--primary-grey-light);
+    padding: 1.5rem;
+    color: var(--primary-grey);
+    background-color: var(--primary-white);
+    font-weight:var(--fw-bold) ;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -3%;
+    z-index: 1;
+    
+}
+
+
+.numbered-one{
+
+    display: inline-block;
+    border-radius: 100vmax;
+    border: 1px solid var(--primary-grey-light);
+    padding: 1.5rem;
+    color: var(--primary-grey);
+    background-color: var(--primary-white);
+    font-weight:var(--fw-bold) ;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -5%;
+    z-index: 1;
+
+}
+.numbered-child{
+    border-left: 1px solid var(--primary-grey-light);
+    height: 70px;
+    position: absolute;
+left: 50%;
+ 
+    bottom: 100%;
+}
+
+@media(min-width:45rem){
+ 
+    .container{
+        --size-900:9rem;
+        width: min(var(--max-width), 100% - var(--size-900));
+    }
+
+    .text-primary-500{
+        padding-inline: 7.5rem;
+    }
+
+    footer{
+        background-image: url("assets/tablet/image-footer.jpg");
+        background-size: contain;
+        background-position: center;
+    }
+    .button{
+        display: inline;
+        margin-inline: .5rem;
+    }
+    
+    .hero-txt{
+        padding-bottom: 5.5rem;
+    }
+
+    .main-content .text-primary-500{
+        padding-inline: 2.5rem;
+
+    }
+.hero-image{
+    margin: 0;
+}
+.hero-image img{
+    width: 105vw;
+}
+
+
+}
